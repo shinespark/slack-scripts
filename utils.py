@@ -10,12 +10,15 @@ def fetch(url):
     return res_body
 
 
-def fetch_all_history(url, base_url='', all_list=[]):
+def fetch_all_history(url, base_url=None, all_list=None):
     print(url)
 
     # init
-    if base_url == '':
+    if not base_url:
         base_url = url
+
+    if not all_list:
+        all_list = []
 
     res = urllib.request.urlopen(url)
     res_body = json.loads(res.read().decode('utf-8'))
@@ -29,12 +32,15 @@ def fetch_all_history(url, base_url='', all_list=[]):
     return all_list
 
 
-def fetch_all_files(url, base_url='', all_list=[]):
+def fetch_all_files(url, base_url=None, all_list=None):
     print(url)
 
     # init
-    if base_url == '':
+    if not base_url:
         base_url = url
+
+    if not all_list:
+        all_list = []
 
     res = urllib.request.urlopen(url)
     res_body = json.loads(res.read().decode('utf-8'))
