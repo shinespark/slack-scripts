@@ -1,6 +1,6 @@
 # Slack-Scripts
 
-for Python 3.x
+Get Slack API token: [Slack Web API | Slack](https://api.slack.com/web)
 
 ## Usage
 
