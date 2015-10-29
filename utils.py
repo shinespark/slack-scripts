@@ -27,3 +27,22 @@ def fetch_all_history(url, base_url='', all_list=[]):
         fetch_all_history(url, base_url, all_list)
 
     return all_list
+
+
+def fetch_all_files(url, base_url='', all_list=[]):
+    print(url)
+
+    # init
+    if base_url == '':
+        base_url = url
+
+    res = urllib.request.urlopen(url)
+    res_body = json.loads(res.read().decode('utf-8'))
+    all_list += res_body['files']
+
+    if res_body['paging']['page'] < res_body['paging']['pages']:
+        page = res_body['paging']['page'] + 1
+        url = base_url + '&page=' + str(page)
+        fetch_all_files(url, base_url, all_list)
+
+    return all_list

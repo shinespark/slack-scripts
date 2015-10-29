@@ -20,18 +20,18 @@ def main():
     target_group_id = [group['id'] for group in groups_list['groups'] if group.get('name') == target_group_name][0]
     print('group_id: ' + target_group_id)
 
-    # fetch groups.history
-    groups_history = utils.fetch_all_history(end_point + 'groups.history' + token + '&channel=' + target_group_id + '&count=1000')
-    your_posts_list = [message for message in groups_history if message.get('user') == your_id and message.get('subtype', '') == '']
+    # fetch files.list
+    your_files_list = utils.fetch_all_files(end_point + 'files.list' + token + '&user=' + your_id)
+    target_groups_your_files_list = [f for f in your_files_list if target_group_id in f.get('groups')]
 
-    # show all your posts, timestamps
-    for message in your_posts_list:
-        print(message['text'], message['ts'])
+    # show all your files, urls
+    for f in target_groups_your_files_list:
+        print(f['id'], f['url_private'])
 
-    # chat.delete
-    print(' {0} 件削除します'.format(len(your_posts_list)))
-    for message in your_posts_list:
-        delete_status = utils.fetch(end_point + 'chat.delete' + token + '&ts=' + message['ts'] + '&channel=' + target_group_id)
+    # files.delete
+    print(' {0} 件削除します'.format(len(target_groups_your_files_list)))
+    for f in target_groups_your_files_list:
+        delete_status = utils.fetch(end_point + 'files.delete' + token + '&file=' + f['id'])
         print(delete_status)
 
     print('complete!!')
