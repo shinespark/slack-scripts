@@ -1,6 +1,6 @@
 # Slack-Scripts
 
-Get Slack API token: [Slack Web API | Slack](https://api.slack.com/web)
+Get Slack Web API token: [Slack Web API | Slack](https://api.slack.com/web)
 
 ## Usage
 
