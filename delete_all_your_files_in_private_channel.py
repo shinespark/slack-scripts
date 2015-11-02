@@ -33,6 +33,7 @@ def main():
         print(f['id'], f['url_private'])
 
     # files.delete
+    print('------------------------------')
     print('{0} 件削除します。よろしいですか？'.format(len(target_groups_your_files_list)))
     while True:
         ans = input('[y/n] > ')

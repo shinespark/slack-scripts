@@ -33,6 +33,7 @@ def main():
         print(message['text'].replace('\n', ''), message['ts'])
 
     # chat.delete
+    print('------------------------------')
     print('{0} 件削除します。よろしいですか？'.format(len(your_posts_list)))
     while True:
         ans = input('[y/n] > ')
