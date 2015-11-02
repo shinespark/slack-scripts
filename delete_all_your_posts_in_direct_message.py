@@ -7,7 +7,7 @@ import utils
 def main():
     argvs = sys.argv
     if len(argvs) != 4:
-        print('usage:\n    delete_all_your_posts_in_direct_messages.py <Slack Web API token> <Your Slack name> <target_user_name>\n')
+        print('usage:\n    delete_all_your_posts_in_direct_message.py <Slack Web API token> <Your Slack name> <Target user name>\n')
         exit()
 
     end_point = 'https://slack.com/api/'
