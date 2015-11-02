@@ -7,7 +7,7 @@
 $ pip install pyyaml
 ```
 
-This scripts use `Slack Web API token` .
+This scripts use `Slack Web API token` .  
 Get Slack Web API token: [Slack Web API | Slack](https://api.slack.com/web)
 
 ## Usage
