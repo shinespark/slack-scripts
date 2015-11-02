@@ -1,5 +1,13 @@
 # Slack-Scripts
 
+
+## Ready to use
+
+'''
+pip install pyyaml
+'''
+
+This scripts use `Slack Web API token` .
 Get Slack Web API token: [Slack Web API | Slack](https://api.slack.com/web)
 
 ## Usage
