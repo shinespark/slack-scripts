@@ -28,14 +28,24 @@ def main():
     groups_history = utils.fetch_all_history(end_point + 'groups.history' + token + '&channel=' + target_group_id + '&count=1000')
     your_posts_list = [message for message in groups_history if message.get('user') == your_id and message.get('subtype', '') == '']
 
-    # chat.delete
-    print('{0} 件削除します'.format(len(your_posts_list)))
+    # show your posts
     for message in your_posts_list:
-        print(message['text'], message['ts'])
-        delete_status = utils.fetch(end_point + 'chat.delete' + token + '&ts=' + message['ts'] + '&channel=' + target_group_id)
-        print(delete_status)
+        print(message['text'].replace('\n', ''), message['ts'])
 
-    print('complete!!')
+    # chat.delete
+    print('{0} 件削除します。よろしいですか？'.format(len(your_posts_list)))
+    while True:
+        ans = input('[y/n] > ')
+        if ans in 'yYnN' and ans != '':
+            break
+
+    if ans == 'y' or ans == 'Y':
+        for message in your_posts_list:
+            print(message['text'].replace('\n', ''), message['ts'])
+            delete_status = utils.fetch(end_point + 'chat.delete' + token + '&ts=' + message['ts'] + '&channel=' + target_group_id)
+            print(delete_status)
+
+        print('complete!!')
 
 
 if __name__ == "__main__":
