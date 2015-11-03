@@ -3,6 +3,15 @@ import json
 import urllib.request
 
 
+def prompt():
+    while True:
+        ans = input('[y/n] > ')
+        if ans in 'yYnN' and ans != '':
+            break
+
+    return ans
+
+
 def fetch(url):
     print(url)
     res = urllib.request.urlopen(url)

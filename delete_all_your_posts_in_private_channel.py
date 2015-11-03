@@ -35,10 +35,7 @@ def main():
     # chat.delete
     print('------------------------------')
     print('{0} 件削除します。よろしいですか？'.format(len(your_posts_list)))
-    while True:
-        ans = input('[y/n] > ')
-        if ans in 'yYnN' and ans != '':
-            break
+    ans = utils.prompt()
 
     if ans == 'y' or ans == 'Y':
         for message in your_posts_list:

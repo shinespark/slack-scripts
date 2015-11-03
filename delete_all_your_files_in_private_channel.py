@@ -35,10 +35,7 @@ def main():
     # files.delete
     print('------------------------------')
     print('{0} 件削除します。よろしいですか？'.format(len(target_groups_your_files_list)))
-    while True:
-        ans = input('[y/n] > ')
-        if ans in 'yYnN' and ans != '':
-            break
+    ans = utils.prompt()
 
     if ans == 'y' or ans == 'Y':
         for f in target_groups_your_files_list:
