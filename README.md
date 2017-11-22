@@ -3,11 +3,7 @@
 
 ## Ready to use
 
-```
-$ pip install pyyaml
-```
-
-This scripts use `Slack Web API token` .  
+This scripts use `Slack Web API token` .
 Get Slack Web API token: [Legacy tokens | Slack](https://api.slack.com/custom-integrations/legacy-tokens)
 
 ## Usage
